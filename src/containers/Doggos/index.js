@@ -1,10 +1,13 @@
 import React from 'react';
 import { DogCard } from '../../components';
+
+import { useSelector, useDispatch } from 'react-redux';
+
 import './style.css';
 
 function Doggos(){
-    let theDogs = [{id: 1, img: '', liked: true}, {id: 1, img: '', liked: false}];
-    let loading = true;
+    const theDogs = useSelector(state => state.doggos)
+    const loading = useSelector(state => state.loading)
 
     const renderDoggos = theDogs.map(dog => <DogCard key={dog.id} doggo={dog} />)
 
